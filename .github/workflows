@@ -1,0 +1,39 @@
+name: 'GitHub Actions email Bot'
+
+on:
+    push:
+        branches:
+            - master
+    schedult:
+        - corn: '0 0 * * *'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout codes
+              uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                node-version: '12.x'
+            - name: Generate html file
+              run: npm install
+              env:
+                START_DAY: ${{ secrets.START_DAY }}
+                MARRY_START_DAY: ${{ secrets.MARRY_START_DAY }}
+                LOCAL: ${{ secrets.LOCAL }}
+              run: node main.js $START_DAY $MARRY_START_DAY $LOCAL
+            - name: Send mail
+                uses: dawidd6/action-send-mail@v2
+                with:
+                    server_address: ${{secrets.MAIL_SERVER_ADDRESS}}
+                    server_port: ${{secrets.MAIL_SERVER_PORT}}
+                    username: ${{secrets.MAIL_USERNAME}}
+                    password: ${{secrets.MAIL_PASSWORD}}
+                    subject: '滴，你的爱心邮件来了'
+                    body: file://result.html
+                    to: ${{secrets.MAIN_SEND_TO}}
+                    from: ${{secrets.MAIL_SEND_FROM}}
+                    content_type: text/html

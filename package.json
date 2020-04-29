@@ -1,0 +1,30 @@
+{
+  "name": "email_day",
+  "version": "1.0.0",
+  "description": "auto send email",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruicky/email_day.git"
+  },
+  "keywords": [
+    "email"
+  ],
+  "author": "ruicky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruicky/email_day/issues"
+  },
+  "homepage": "https://github.com/ruicky/email_day#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "moment": "^2.24.0",
+    "node-schedule": "^1.2.5",
+    "nodemailer": "^4.4.0",
+    "superagent": "^3.8.1"
+  }
+}
