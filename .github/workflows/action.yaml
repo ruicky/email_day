@@ -19,12 +19,12 @@ jobs:
               with:
                 node-version: '12.x'
             - name: Generate html file
-              run: npm install
+            - run: npm install
+            - run: node main.js $START_DAY $MARRY_START_DAY $LOCAL
               env:
                 START_DAY: ${{ secrets.START_DAY }}
                 MARRY_START_DAY: ${{ secrets.MARRY_START_DAY }}
                 LOCAL: ${{ secrets.LOCAL }}
-              run: node main.js $START_DAY $MARRY_START_DAY $LOCAL
             - name: Send mail
               uses: dawidd6/action-send-mail@v2
               with:
