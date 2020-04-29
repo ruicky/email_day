@@ -9,7 +9,7 @@
 
 ## 配置
 
-### 1) GitHub Secrets 设置
+### GitHub Secrets 设置
 
 在 项目 `Settings` 下的 `Secrets` 中添加以下变量
 + `START_DAY` 纪念日开始时间 eg:2017/1/28
