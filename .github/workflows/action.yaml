@@ -10,7 +10,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
+  
         steps:
             - name: Checkout codes
               uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
               with:
                 node-version: '12.x'
             - name: Generate html file
-            - run: npm install
+              run: npm install
             - run: node main.js $START_DAY $MARRY_START_DAY $LOCAL
               env:
                 START_DAY: ${{ secrets.START_DAY }}
