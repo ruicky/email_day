@@ -26,14 +26,14 @@ jobs:
                 LOCAL: ${{ secrets.LOCAL }}
               run: node main.js $START_DAY $MARRY_START_DAY $LOCAL
             - name: Send mail
-                uses: dawidd6/action-send-mail@v2
-                with:
-                    server_address: ${{secrets.MAIL_SERVER_ADDRESS}}
-                    server_port: ${{secrets.MAIL_SERVER_PORT}}
-                    username: ${{secrets.MAIL_USERNAME}}
-                    password: ${{secrets.MAIL_PASSWORD}}
-                    subject: '滴，你的爱心邮件来了'
-                    body: file://result.html
-                    to: ${{secrets.MAIN_SEND_TO}}
-                    from: ${{secrets.MAIL_SEND_FROM}}
-                    content_type: text/html
+              uses: dawidd6/action-send-mail@v2
+              with:
+                server_address: ${{secrets.MAIL_SERVER_ADDRESS}}
+                server_port: ${{secrets.MAIL_SERVER_PORT}}
+                username: ${{secrets.MAIL_USERNAME}}
+                password: ${{secrets.MAIL_PASSWORD}}
+                subject: '滴，你的爱心邮件来了'
+                body: file://result.html
+                to: ${{secrets.MAIN_SEND_TO}}
+                from: ${{secrets.MAIL_SEND_FROM}}
+                content_type: text/html
